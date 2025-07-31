@@ -1,38 +1,199 @@
+/* client/src/App.css*/
+:root {
+  --bg: #ffffff;
+  --text: #222222;
+  --card-bg: #f9f9f9;
+  --accent: #ff4c60;
+  --link: #ff70a6;
+  --hover: #ffd6e0;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1e1e2f;
+    --text: #f5f5f5;
+    --card-bg: #2f2f44;
+    --accent: #ff6b81;
+    --link: #ff70a6;
+    --hover: #ffd6e0;
+    --shadow: rgba(255, 255, 255, 0.1);
+  }
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
 .App {
   text-align: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 30vmin;
   pointer-events: none;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+  transition: transform 0.4s ease;
 }
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 15s linear;
   }
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: linear-gradient(to right, #ffe4e1, #fff1f5);
+  padding: 50px 20px 30px;
+  border-bottom: 1px solid var(--shadow);
+  box-shadow: 0 4px 10px var(--shadow);
+}
+.App-header h1 {
+  font-size: 2.5rem;
+  margin-top: 10px;
+}
+.App-header p {
+  margin: 8px 0 0;
+  font-size: 1.1rem;
+  color: #666;
 }
 
 .App-link {
-  color: #61dafb;
+  color: var(--link);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.App-link:hover {
+  color: var(--hover);
 }
 
-@keyframes App-logo-spin {
+.card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  padding: 30px;
+  margin: 20px;
+  flex: 1 1 calc(50% - 40px);
+  box-shadow: 0 10px 30px var(--shadow);
+  animation: slideIn 0.6s ease both;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cover-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.card p {
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.badge {
+  background-color: #ffe4e1;
+  color: var(--accent);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-left: 8px;
+  display: inline-block;
+}
+
+.button {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 16px;
+}
+.button:hover {
+  background-color: var(--hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 76, 96, 0.4);
+}
+
+@keyframes slideIn {
   from {
-    transform: rotate(0deg);
+    transform: translateY(40px);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(0);
+    opacity: 1;
   }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    flex: 1 1 100%;
+    padding: 20px;
+    margin: 15px 0;
+  }
+  .App-logo {
+    height: 20vmin;
+  }
+  .button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  .cover-img {
+    height: 140px;
+  }
+}
+
+.carousel-item {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9比例 */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.carousel-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 重要：裁切圖片填滿 */
 }

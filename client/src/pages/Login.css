@@ -1,0 +1,96 @@
+.form-container {
+  max-width: 420px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.form-logo {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 8px;  /* 原本可能是 20px，改小讓更靠近登入標題 */
+}
+
+.form-container h2 {
+  margin-top: 0px;   /* 加這行讓標題更靠上 */
+  margin-bottom: 24px;
+  font-size: 28px;
+  color: #333;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border 0.3s;
+}
+
+.form-container input:focus {
+  border-color: #5e60ce;
+  outline: none;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #5e60ce;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form-forgot {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.form-forgot a {
+  color: #5e60ce;
+  text-decoration: underline;
+}
+
+.form-container button:hover {
+  background-color: #4b4ece;
+}
+
+.form-bottom-text {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.form-bottom-text a {
+  color: #5e60ce;
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ✅ Toast 通知錯誤樣式 */
+.toast-error {
+  background-color: #ffe8e8 !important;
+  color: #b00020 !important;
+  font-weight: bold;
+  font-size: 16px;
+  border-left: 8px solid #e53935;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.toast-icon {
+  margin-right: 8px;
+  font-size: 18px;
+  vertical-align: middle;
+}
